@@ -106,6 +106,84 @@
     print(most_common[:1]) # [('a', 3)]
     ```
 
+### re
+  - python standard library to enable to use **Regular Expression**
+  - split, detect, find pattern in string
+  
+    ```python
+    import re
+    
+    # detect numeric
+    re.findall(r'\d+', "abc123def456")
+  
+    # split string
+    re.split(r'\n+', text)
+  
+    # search email type pattern
+    re.search(r'\w+@\w+\.\w+', s)
+  
+    # search string pattern such as section header
+    re.search(r'\b\d+(\.\d+)*\s+[^\n]+', text)    # 1. Introduction / 2.3. Methods
+    ```
+
+
+### nltk
+  - Natural Language Toolkit
+  - library for **NLP**
+
+    - nltk.stem
+    ```python
+    import nltk
+    from nltk.stem import WordNetLemmatizer, PorterStemmer
+
+    nltk.download('wordnet')     # download words dictionary(WordNet) for lemmatization
+    
+    lemmatizer = WordNetLemmatizer()
+    
+    lemmatizer.lemmatize("running", pos="v")  # → 'run', default pos = n , "am", "are", "is" → "be"
+    print(lemmatizer.lemmatize("flies", pos="v"))    # 'fly'
+    print(lemmatizer.lemmatize("universities", pos="n"))  # 'university'
+    
+    stemmer = PorterStemmer()    # Stemming: trun words into root form []
+    print(stemmer.stem("running"))   # 'run'
+    print(stemmer.stem("flies"))     # 'fli' ❌
+    print(stemmer.stem("universities"))  # 'univers' ❌
+    ```
+
+    - nltk.tokenize
+    ```python
+    import nltk
+    from nltk.tokenize import word_tokenize, sent_tokenize
+    
+    nltk.download('punkt')
+
+    sent_tokenize("Hello. How are you?")  
+    # → ['Hello.', 'How are you?']
+
+    sentence = "This is an example sentence."
+    tokens = word_tokenize(sentence)
+    print(tokens)
+    # ['This', 'is', 'an', 'example', 'sentence', '.']
+    ```
+
+    - nltk.corpus 
+    ```python
+    from nltk.corpus import stopwords
+    
+    nltk.download('stopwords')   # meaningless words, used for grammatic reason [the, is, in, at]
+
+    stop_words = set(stopwords.words('english'))
+
+    words = ["this", "is", "an", "example"]
+    filtered = [w for w in words if w not in stop_words]
+    
+    print(filtered)  # ['example']
+    ```
+
+
+
+
+
 
 #### Type Hint
   ```python
