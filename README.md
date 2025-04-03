@@ -191,7 +191,22 @@
   def process_uploaded_pdfs(pdf_dir: str) -> List[dict]:
   ```
 
+#### List Slicing
+  ```python
+  metadata = ["a", "b", "c", "d", "e", "f"]
+  max_chunks = 4
+  
+  metadata[:max_chunks // 2]
+  # → metadata[:2]  # max_chunks // 2 = 2
+  # → ['a', 'b']
 
+  metadata[-max_chunk // 2:]
+  # → metadata[-2:]
+  # → ['e', 'f']
+
+  metadata[3:5]
+  # → ['d', 'e']
+  ```
 
 
 
